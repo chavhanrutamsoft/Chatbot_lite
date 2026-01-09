@@ -1,0 +1,18 @@
+========================================
+QUICK FIX FOR RENDER ERROR
+========================================
+
+ERROR: ModuleNotFoundError: No module named 'app'
+
+FIX: Render Dashboard → Settings → Start Command
+
+CURRENT (WRONG):
+app:app
+
+CHANGE TO (CORRECT):
+app_lite:app
+
+FULL COMMAND:
+gunicorn --bind 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 1 --chdir backend app_lite:app --preload
+
+========================================
