@@ -17,7 +17,7 @@ python app_lite.py
 
 ### Render Deployment
 
-1. **Root Directory**: `Lite_version` (Render dashboard में)
+1. **Root Directory**: `.` (root - not Lite_version)
 2. **Build Command**: `pip install -r requirements_lite.txt`
 3. **Start Command**: `gunicorn --bind 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 1 --chdir backend app_lite:app --preload`
 4. **Instance Type**: `Free`
@@ -60,3 +60,12 @@ Lite_version/
 ## 📚 Documentation
 
 See `README_LITE.md` and `DEPLOYMENT_LITE.md` for detailed information.
+
+## 🚀 GitHub Upload
+
+**To upload to GitHub:**
+
+1. Create repository: https://github.com/new (name: `chatbot_lite`)
+2. Push: `git push -u origin main`
+
+See `UPLOAD_NOW.md` for detailed instructions.

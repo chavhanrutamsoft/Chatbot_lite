@@ -1,0 +1,27 @@
+========================================
+EXACT STEPS TO UPLOAD TO GITHUB
+========================================
+
+STEP 1: CREATE REPOSITORY (1 minute)
+-------------------------------------
+1. Open browser: https://github.com/new
+2. Repository name: chatbot_lite
+3. Description: Lightweight RAG Chatbot for 512 MB
+4. Select: Public
+5. IMPORTANT: DO NOT CHECK:
+   - Add a README file
+   - Add .gitignore  
+   - Choose a license
+6. Click: "Create repository"
+
+STEP 2: PUSH FILES (30 seconds)
+--------------------------------
+After repository is created, run this command:
+
+cd Lite_version
+git push -u origin main
+
+OR double-click: PUSH_TO_GITHUB.bat
+
+DONE! ✅
+========================================
