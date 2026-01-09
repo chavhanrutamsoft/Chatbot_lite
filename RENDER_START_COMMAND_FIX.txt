@@ -1,0 +1,32 @@
+========================================
+RENDER START COMMAND FIX
+========================================
+
+ERROR: ModuleNotFoundError: No module named 'app'
+
+PROBLEM: Start Command में wrong file name है
+
+CURRENT (WRONG):
+gunicorn --bind 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 2 --chdir backend app:app
+
+FIX (CORRECT):
+gunicorn --bind 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 1 --chdir backend app_lite:app --preload
+
+CHANGES:
+1. app:app → app_lite:app (file name सही)
+2. threads 2 → threads 1 (memory save)
+3. --preload add किया (faster startup)
+
+========================================
+HOW TO FIX IN RENDER:
+========================================
+
+1. Render Dashboard में जाएं
+2. Your Service → Settings
+3. Start Command field में जाएं
+4. यह command paste करें:
+   gunicorn --bind 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 1 --chdir backend app_lite:app --preload
+5. Save Changes
+6. Automatic redeploy होगा
+
+========================================
