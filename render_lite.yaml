@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: qdrant-rag-chatbot-lite
+    env: python
+    buildCommand: pip install -r requirements_lite.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 1 --chdir backend app_lite:app --preload
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: QDRANT_HOST
+        value: https://your-qdrant-instance.onrender.com
+        sync: false
+      - key: COLLECTION_NAME
+        value: quoteplan_chunks
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: PYTHONHASHSEED
+        value: "0"
+      - key: OMP_NUM_THREADS
+        value: "1"
+    healthCheckPath: /
+    plan: free
