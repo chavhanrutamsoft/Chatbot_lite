@@ -2,7 +2,7 @@ services:
   - type: web
     name: qdrant-rag-chatbot-lite
     env: python
-    buildCommand: pip install -r requirements_lite.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --timeout 120 --workers 1 --threads 1 --chdir backend app_lite:app --preload
     envVars:
       - key: OPENROUTER_API_KEY
